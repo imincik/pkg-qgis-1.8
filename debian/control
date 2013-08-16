@@ -5,28 +5,37 @@ Maintainer: Quantum GIS developers <qgis-developer@lists.osgeo.org>
 Build-Depends:
  bison,
  cmake (>= 2.6),
- debhelper (>= 5.0.51~),
+ debhelper (>= 7),
  flex,
  grass-dev,
  libexpat1-dev,
  libfcgi-dev,
- libgdal1-dev,
- libgeos-dev (>= 3.0.0),
+ libgdal-dev (>= 1.10.0),
+ libgeos-dev (>= 3.3.8),
  libgsl0-dev,
  libpq-dev,
+ libproj-dev,
  libqt4-dev (>=4.4.0),
- libqwt5-qt4-dev | libqwt-dev,
+ libqt4-opengl-dev,
+ libqtwebkit-dev,
+ libqwt5-qt4-dev,
+ libspatialite-dev,
  libsqlite3-dev,
- proj (<< 4.7.0) | libproj-dev (>= 4.7.0),
+ libspatialindex-dev,
+ pkg-config,
  pyqt4-dev-tools,
  python,
  python-central (>=0.5),
  python-dev,
+ python-qt4 (>=4.1.0),
  python-qt4-dev (>=4.1.0),
- python-sip-dev (>= 4.5.0) | python-sip4-dev (>= 4.5.0) | sip4 (>= 4.5),
- git-core | git,
+ python-sip (>= 4.5.0),
+ python-sip-dev (>= 4.5.0),
+ git,
+ doxygen,
+ graphviz,
  txt2tags,
- doxygen
+ xvfb, xauth, xfonts-base
 Build-Conflicts: libqgis-dev, qgis-dev
 Standards-Version: 3.8.4
 XS-Python-Version: current
@@ -35,7 +44,7 @@ Homepage: http://qgis.org/
 Package: qgis
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, qgis-providers (= ${binary:Version}), qgis-common (= ${source:Version})
-Recommends: qgis-plugin-grass, python-qgis
+Recommends: qgis-plugin-globe, qgis-plugin-grass, python-qgis
 Suggests: gpsbabel
 Conflicts: uim-qt3
 Description: Geographic Information System (GIS)
@@ -73,8 +82,8 @@ Section: libdevel
 Depends:
  grass-dev,
  libexpat1-dev,
- libgdal1-dev,
- libgeos-dev (>= 3.0.0),
+ libgdal-dev (>= 1.10.0),
+ libgeos-dev (>= 3.3.8),
  libgsl0-dev,
  libpq-dev,
  libproj-dev,
@@ -95,7 +104,7 @@ Description: Quantum GIS - development files
 
 Package: qgis-plugin-grass
 Architecture: any
-Depends: qgis (= ${binary:Version}), qgis-plugin-grass-common (= ${source:Version}), ${shlibs:Depends}, ${misc:Depends}, grass
+Depends: qgis (= ${binary:Version}), qgis-plugin-grass-common (= ${source:Version}), ${shlibs:Depends}, ${misc:Depends}, grass643-4
 Description: GRASS plugin for Quantum GIS
  Quantum GIS is a Geographic Information System (GIS) which manages, analyzes
  and display databases of geographic information.
@@ -105,7 +114,7 @@ Description: GRASS plugin for Quantum GIS
 
 Package: qgis-plugin-grass-common
 Architecture: all
-Depends: python
+Depends: ${python:Depends}
 Replaces: qgis-common (<< 1.5)
 Breaks: qgis-common (<< 1.5)
 Description: GRASS plugin for Quantum GIS - architecture-independent data
@@ -118,7 +127,7 @@ Description: GRASS plugin for Quantum GIS - architecture-independent data
 Package: python-qgis
 Section: python
 Architecture: any
-Depends: python-qt4 (>=4.1.0), python-sip4 (>= 4.5.0), python-qgis-common (= ${source:Version}), ${shlibs:Depends}, ${misc:Depends}
+Depends: python-qt4 (>=4.1.0), python-sip (>= 4.5.0), python-qgis-common (= ${source:Version}), ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}
 Provides: ${python:Provides}
 XB-Python-Version: ${python:Versions}
 Description: Python bindings to Quantum GIS
@@ -131,7 +140,7 @@ Package: python-qgis-common
 Section: python
 Architecture: all
 Provides: ${python:Provides}
-Depends: gdal-bin, python-gdal
+Depends: gdal-bin, python-gdal, ${python:Depends}
 XB-Python-Version: ${python:Versions}
 Description: Python bindings to Quantum GIS - architecture-independent files
  Quantum GIS is a Geographic Information System (GIS) which manages, analyzes
@@ -170,4 +179,23 @@ Description: Quantum GIS mapserver
  and display databases of geographic information.
  .
  This package contains the Quantum GIS mapserver.
+
+Package: qgis-sqlanywhere
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: qgis-sqlanywhere1.7.0, qgis-sqlanywhere1.7.1, qgis-sqlanywhere1.8.0
+Description: Quantum GIS sql anywhere plugin and provider
+ Quantum GIS is a Geographic Information System (GIS) which manages, analyzes
+ and display databases of geographic information.
+ .
+ This package contains the Quantum GIS sqlanywhere plugin and provider.
+
+Package: qgis-api-doc
+Architecture: all
+Section: doc
+Description: Quantum GIS API documentation
+ Quantum GIS is a Geographic Information System (GIS) which manages, analyzes
+ and display databases of geographic information.
+ .
+ This package contains the Quantum GIS API documentation.
 

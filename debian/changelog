@@ -1,6 +1,67 @@
-qgis (1.9.90) UNRELEASED; urgency=low
+qgis (1.8.0-1~precise12) precise; urgency=high
 
-  * new development version 1.9.90 after branch of 1.8.0
+  * Added a fix for gdaltools plugin with gdal 1.10
+
+ -- Jerome Villeneuve Larouche <jlarouche@mapgears.com>  Fri, 16 Aug 2013 11:45:11 -0400
+
+qgis (1.8.0-1~precise9) precise; urgency=high
+
+  * Rebuild for new grass version.
+
+ -- Jerome Villeneuve Larouche <jlarouche@mapgears.com>  Tue, 30 Jul 2013 09:33:10 -0400
+
+qgis (1.8.0-1~precise8) precise; urgency=medium
+
+  * Rebuild for new grass version.
+
+ -- Jerome Villeneuve Larouche <jlarouche@mapgears.com>  Tue, 16 Jul 2013 09:08:38 -0400
+
+qgis (1.8.0-1~precise7) precise; urgency=medium
+
+  * Deactivated Globe Plugin because of osgearth 2.4 which is not compatible
+    with QGIS 1.8.0.
+
+ -- Jerome Villeneuve Larouche <jlarouche@mapgears.com>  Mon, 15 Jul 2013 09:27:17 -0400
+
+qgis (1.8.0-1~precise6) precise; urgency=medium
+
+  * Rebuild against libgdal1h
+
+ -- Jerome Villeneuve Larouche <jlarouche@mapgears.com>  Fri, 12 Jul 2013 11:34:16 -0400
+
+qgis (1.8.0-1~precise5) precise; urgency=low
+
+  * Rebuild for Precise.
+
+ -- Jerome Villeneuve Larouche <jlarouche@mapgears.com>  Mon, 08 Jul 2013 09:24:47 -0400
+
+qgis (1.8.0-1~precise4) precise; urgency=high
+
+  * Launchpad build for Precise
+
+ -- Jerome Villeneuve Larouche <jlarouche@mapgears.com>  Tue, 04 Jun 2013 15:39:31 -0400
+
+qgis (1.8.0-1~precise3) precise; urgency=medium
+
+  * Rebuild for libproj 4.8.0
+
+ -- Jerome Villeneuve Larouche <jlarouche@mapgears.com>  Thu, 06 Dec 2012 11:36:22 -0500
+
+qgis (1.8.0-1~precise2) precise; urgency=medium
+
+  * Launchpad build for Precise
+
+ -- Jerome Villeneuve Larouche <jlarouche@mapgears.com>  Thu, 01 Nov 2012 15:00:35 +0000
+
+qgis (1.8.0-1~precise1) precise; urgency=low
+
+  * launchpad build for precise
+
+ -- Jürgen E. Fischer <jef@norbit.de>  Sun, 17 Jun 2012 22:56:00 +0200
+
+qgis (1.8.0) UNRELEASED; urgency=low
+
+  * new development version 1.8 after branch
   * include function help in package
   * include heatmap plugin
   * drop extra include path for QtWebkit on oneiric and natty
@@ -13,12 +74,6 @@ qgis (1.9.90) UNRELEASED; urgency=low
   * copyright & policy update (synced from debiangis)
   * run crssync in postinst
   * run tests with xvfb and upload to results to (c)dashboard
-
- -- Jürgen E. Fischer <jef@norbit.de>  Wed, 18 Apr 2012 20:50:12 +0200
-
-qgis (1.8.0) UNRELEASED; urgency=low
-
-  * new development version 1.8 after branch
   * add qgis browser (qbrowser)
   * add zonal statistics plugins and globe plugin
   * migrate unstable package to dh_python2
@@ -29,8 +84,9 @@ qgis (1.8.0) UNRELEASED; urgency=low
   * include network analysis library
   * build package with libspatialindex where available
   * drop wfsplugin & displaceplugin
+  * added fix_gdaltools_version.patch to fix GdalTools plugin with gdal 1.10
 
- -- Jürgen E. Fischer <jef@norbit.de>  Fri, 28 Oct 2011 08:52:45 +0200
+ -- Jerome Villeneuve Larouche <jlarouche@mapgears.com>  Fri, 16 Aug 2013 10:21:00 -0400
 
 qgis (1.7.0) UNRELEASED; urgency=low
 

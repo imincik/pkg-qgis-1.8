@@ -1,0 +1,42 @@
+diff --git a/src/core/qgsvectorlayer.cpp b/src/core/qgsvectorlayer.cpp
+index f2589c3..6922dea 100644
+--- a/src/core/qgsvectorlayer.cpp
++++ b/src/core/qgsvectorlayer.cpp
+@@ -731,7 +731,7 @@ void QgsVectorLayer::drawRendererV2( QgsRenderContext& rendererContext, bool lab
+       {
+         break;
+       }
+-
++#if 0 // MK: disable this totally as it breaks QT painting engine (can result in recursive repaint)
+ #ifndef Q_WS_MAC //MH: disable this on Mac for now to avoid problems with resizing
+       if ( mUpdateThreshold > 0 && 0 == featureCount % mUpdateThreshold )
+       {
+@@ -745,6 +745,7 @@ void QgsVectorLayer::drawRendererV2( QgsRenderContext& rendererContext, bool lab
+         qApp->processEvents();
+       }
+ #endif //Q_WS_MAC
++#endif
+ 
+       bool sel = mSelectedFeatureIds.contains( fet.id() );
+       bool drawMarker = ( mEditable && ( !vertexMarkerOnlyForSelection || sel ) );
+diff --git a/src/gui/qgsmapcanvas.cpp b/src/gui/qgsmapcanvas.cpp
+index ed160aa..5d258f9 100644
+--- a/src/gui/qgsmapcanvas.cpp
++++ b/src/gui/qgsmapcanvas.cpp
+@@ -84,6 +84,8 @@ QgsMapCanvas::QgsMapCanvas( QWidget * parent, const char *name )
+     , mAntiAliasing( false )
+ {
+   Q_UNUSED( name );
++
++#if 0
+   //disable the update that leads to the resize crash
+   if ( viewport() )
+   {
+@@ -91,6 +93,7 @@ QgsMapCanvas::QgsMapCanvas( QWidget * parent, const char *name )
+     viewport()->setAttribute( Qt::WA_PaintOnScreen, true );
+ #endif //ANDROID
+   }
++#endif
+ 
+   mScene = new QGraphicsScene();
+   setScene( mScene );

@@ -1,1 +1,2 @@
 fix_gdaltools_version.patch
+fix-canvas-flicker.patch

@@ -1,3 +1,9 @@
+qgis (1.8.0-1~precise12+1) precise; urgency=low
+
+  * Adding patch to fix canvas flickering.
+
+ -- Ivan Mincik <ivan.mincik@gmail.com>  Sat, 24 Aug 2013 11:57:04 +0200
+
 qgis (1.8.0-1~precise12) precise; urgency=high
 
   * Added a fix for gdaltools plugin with gdal 1.10
